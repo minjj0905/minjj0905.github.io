@@ -85,7 +85,7 @@ a {
 }
 
 .footer {
-    margin-top: 100px;
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     border-top: #818181 solid 1px;
@@ -118,7 +118,7 @@ a {
 }
 
 #profile-img {
-    width: 600px;
+    width: 450px;
     margin-right: 80px;
 }
 
