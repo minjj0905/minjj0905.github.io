@@ -1,0 +1,215 @@
+@font-face {
+  font-family: 'S-CoreDream-4Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Recipekorea';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'IBMPlexSansKR-Regular';
+  background-color: #f2e8dc;
+}
+
+.frame {
+  display: flex;
+  padding: 0 80px;
+  margin: 30px 120px;
+  flex-direction: column;
+}
+
+.navigator {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+li {
+  display: inline;
+  align-self: center;
+  margin: 0;
+  margin-left: 10px;
+}
+
+ul {
+  margin: 0;
+}
+
+.site-name {
+  margin: 0;
+  font-size: 30px;
+  font-family: 'Recipekorea';
+  color: #d9ccc1;
+  text-shadow: -2px 0 #272425, 0 2px #272425, 2px 0 #272425, 0 -2px #272425;
+}
+
+.nav_menu {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+a {
+  color: #272425;
+  text-decoration: none;
+}
+
+.nav_menu:hover {
+  color: #ffffff;
+  transition: 0.3s;
+  text-shadow: -1px -1px 0 #5c5859, 1px -1px 0 #5c5859, -1px 1px 0 #5c5859, 1px 1px 0 #5c5859;
+}
+
+.info {
+  margin-top: 80px;
+}
+
+.comment {
+  font-weight: 100;
+}
+
+.potato {
+  color: #818181;
+}
+
+.footer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  border-top: #999999 solid 1px;
+  align-items: center;
+}
+
+.contact {
+  font-size: 28px;
+  color: #595047;
+  margin-bottom: 15px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.links > a {
+  font-size: 25px;
+  color: #595047;
+}
+
+.links > a:hover {
+  color: #638896;
+}
+
+.profile {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#profile-img {
+  width: 400px;
+  margin-right: 80px;
+}
+
+.introduction {
+  font-size: 22px;
+}
+
+.intro-comment {
+  text-align: center;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.name {
+  font-weight: 1000;
+  font-size: 36px;
+}
+
+.footerContainer {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rainbow-text {
+  font-size: 18px;
+  position: relative;
+  color: #000;
+  background: #fff;
+  mix-blend-mode: multiply;
+  overflow: hidden;
+
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 2px 4px 6px;
+  margin: -2px -4px -6px;
+  transition: 0.25s;
+}
+
+.rainbow-text:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+}
+
+.rainbow-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: -100%;
+  background: white
+    repeating-linear-gradient(90deg, #14ffe9 0%, #ffc800 16.66666%, #ff00e0 33.33333%, #14ffe9 50%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: move 1s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@supports not (mix-blend-mode: multiply) {
+  .rainbow-text {
+    -webkit-text-fill-color: transparent;
+    background-clip: text !important;
+    background: white repeating-linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
+    text-shadow: none;
+  }
+  .rainbow-text::before {
+    content: none;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4.5rem 0 1rem 0;
+}
