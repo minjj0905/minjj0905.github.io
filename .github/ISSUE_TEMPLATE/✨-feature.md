@@ -7,11 +7,11 @@ assignees: minjj0905
 
 ---
 
-### Description
+## Description
 설명을 작성하세요.
 
-### Todo
+## Todo
 - [ ] todo
 
-### ETC
+## ETC
 기타 설명을 작성하세요.
