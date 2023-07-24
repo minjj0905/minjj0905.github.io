@@ -7,11 +7,11 @@ assignees: ''
 
 ---
 
-### Description
+## Description
 설명을 작성해주세요.
 
-### Situation
+## Situation
 버그 발생 조건 및 상황을 설명해주세요.
 
-### ETC
+## ETC
 기타 설명이나 자료가 있다면 첨부해주세요.
