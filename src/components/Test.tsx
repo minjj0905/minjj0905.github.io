@@ -1,5 +1,13 @@
+import Image from 'next/image';
+import loopy from 'public/loopy.png';
+
 const Test = () => {
-  return <div>테스트</div>;
+  return (
+    <div>
+      <Image src={loopy} alt="loopy" />
+      테스트
+    </div>
+  );
 };
 
 export default Test;
