@@ -1,7 +1,7 @@
 ---
 name: "✨ FEATURE"
 about: Feature 추가 시 사용합니다.
-title: "[FEAT]"
+title: "[Feat]"
 labels: "✨ Feature"
 assignees: minjj0905
 
