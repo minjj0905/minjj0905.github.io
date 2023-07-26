@@ -1,7 +1,7 @@
 ---
 name: "\U0001F41E Bug"
 about: Bug 제보 시 사용합니다.
-title: "[BUG]"
+title: "[Bug]"
 labels: "\U0001F41E Bug"
 assignees: ''
 
