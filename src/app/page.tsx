@@ -1,5 +1,6 @@
+import Test from '@components/Test';
 import Image from 'next/image';
-import Test from '@/components/Test';
+
 import styles from './page.module.css';
 
 export default function Home() {
