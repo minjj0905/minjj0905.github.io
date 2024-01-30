@@ -58,13 +58,20 @@ const config: GatsbyConfig = {
       },
       __key: 'pages',
     },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'blog',
+    //     path: './contents/blog/',
+    //   },
+    //   __key: 'blog',
+    // },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'blog',
-        path: './contents/blog/',
+        name: `contents`,
+        path: `${__dirname}/contents`,
       },
-      __key: 'blog',
     },
   ],
 };

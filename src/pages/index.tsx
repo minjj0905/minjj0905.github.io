@@ -2,7 +2,8 @@
 
 const IndexPage = () => (
   <div>
-    asdfasd<div>asdfsdf</div>
+    Blog
+    <h1>dsf</h1>
   </div>
 );
 
