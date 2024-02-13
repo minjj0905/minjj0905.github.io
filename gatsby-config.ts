@@ -73,6 +73,12 @@ const config: GatsbyConfig = {
         path: `${__dirname}/contents`,
       },
     },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: ['gatsby-remark-prismjs'],
+      },
+    },
   ],
 };
 

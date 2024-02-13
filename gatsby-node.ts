@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 /**
@@ -12,7 +14,6 @@
 import path from 'path';
 
 // Setup Import Alias
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 exports.onCreateWebpackConfig = ({ getConfig, actions }: any) => {
   const output = getConfig().output || {};
 
@@ -33,4 +34,23 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }: any) => {
       },
     },
   });
+};
+
+const { createFilePath } = require(`gatsby-source-filesystem`);
+
+exports.onCreateNode = ({ node, getNode, actions }: any) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    // Turn markdown files in our `posts` directory into `/post/slug`
+    const relativeFilePath = createFilePath({
+      node,
+      getNode,
+      basePath: `posts`,
+    });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `/posts${relativeFilePath}`,
+    });
+  }
 };
