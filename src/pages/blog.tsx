@@ -10,7 +10,8 @@ export const query = graphql`
             title
             date
             category
-            draft
+            summary
+            update
           }
         }
       }
@@ -29,3 +30,5 @@ const BlogPage = ({ data }: { data: any }) => (
 );
 
 export default BlogPage;
+
+export const Head = () => <title>Blogs</title>;
