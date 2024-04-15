@@ -19,7 +19,7 @@ jobs:
           version: 8
 
       - name: build 🛠️
-        runs: pnpm install
+        run: pnpm install
         env:
           NODE_ENV: production
 
