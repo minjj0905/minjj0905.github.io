@@ -34,3 +34,4 @@ jobs:
         env:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
+          cname: minjj.dev
