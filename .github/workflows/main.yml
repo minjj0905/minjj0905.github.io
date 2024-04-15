@@ -21,9 +21,6 @@ jobs:
       - name: preinstall 🛠️
         run: pnpm preinstall
 
-      - name: prepare 🛠️
-        run: pnpm prepare
-
       - name: install 🛠️
         run: pnpm install
 
