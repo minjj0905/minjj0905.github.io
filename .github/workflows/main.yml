@@ -29,10 +29,12 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: copy Cname
+        run: cp ./CNAME ./public/CNAME
+
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v2
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
-          CNAME: minjj.dev
