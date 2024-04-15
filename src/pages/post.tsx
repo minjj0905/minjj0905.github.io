@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { graphql } from 'gatsby';
+import Layout from '@/components/Layout';
+import SEO from '@/components/SEO';
+import { Button } from '@/components/ui/button';
+import { Link, graphql } from 'gatsby';
 
 export const query = graphql`
   query {
@@ -19,16 +22,19 @@ export const query = graphql`
   }
 `;
 
-const BlogPage = ({ data }: { data: any }) => (
-  <>
-    <h1>blogblog</h1>
+const Post = ({ data }: { data: any }) => (
+  <Layout>
+    <h1>Post</h1>
     {data.allMdx.edges.map((node: any) => (
       // eslint-disable-next-line react/jsx-key
       <h1>{node.node.frontmatter.title}</h1>
     ))}
-  </>
+    <Link to="/">
+      <Button>To Index</Button>
+    </Link>
+  </Layout>
 );
 
-export default BlogPage;
+export default Post;
 
-export const Head = () => <title>Blogs</title>;
+export const Head = () => <SEO title="Post" />;
