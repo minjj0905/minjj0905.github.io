@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import Layout from '@/components/Layout';
-import SEO from '@/components/SEO';
+import Layout from '@/components/common/Layout';
+import SEO from '@/components/common/SEO';
 import { Button } from '@/components/ui/button';
 import { Link, graphql } from 'gatsby';
 
@@ -26,7 +25,6 @@ const Post = ({ data }: { data: any }) => (
   <Layout>
     <h1>Post</h1>
     {data.allMdx.edges.map((node: any) => (
-      // eslint-disable-next-line react/jsx-key
       <h1>{node.node.frontmatter.title}</h1>
     ))}
     <Link to="/">

@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 /* eslint-disable no-undef */
+
 /* eslint-disable @typescript-eslint/no-var-requires */
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: <https://www.gatsbyjs.com/docs/node-apis/>
  */
-
 // You can delete this file if you're not using it
-
 // eslint-disable-next-line import/no-import-module-exports
 import path from 'path';
 
@@ -29,7 +30,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }: any) => {
     resolve: {
       alias: {
         '@/components': path.resolve(__dirname, 'src/components'),
-        '@/utils': path.resolve(__dirname, 'src/utils'),
+        '@/lib/utils': path.resolve(__dirname, 'src/lib/utils'),
         '@/hooks': path.resolve(__dirname, 'src/hooks'),
       },
     },
