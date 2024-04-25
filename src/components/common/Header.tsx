@@ -1,11 +1,10 @@
-import { MagnifyingGlassIcon, MoonIcon, RssIcon } from '@heroicons/react/20/solid';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import useTheme from '@/hooks/useTheme';
+import { MagnifyingGlassIcon, MoonIcon, RssIcon, SunIcon } from '@heroicons/react/20/solid';
 import { Link } from 'gatsby';
 
 const Header = () => {
-  const switchTheme = () => {
-    const curTheme = document.documentElement.getAttribute('data-theme');
-    document.documentElement.setAttribute('data-theme', curTheme === 'dark' ? 'light' : 'dark');
-  };
+  const [theme, toggleTheme] = useTheme();
 
   return (
     <header className="sticky top-0 w-full h-16 z-50 bg-c-bg-primary border-b-2 flex justify-center items-center">
@@ -29,19 +28,33 @@ const Header = () => {
               <Link to="/about">about</Link>
             </li>
             <li>
-              <button>
-                <RssIcon className="w-5 h-5" />
+              <TooltipProvider delayDuration={200}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <RssIcon className="w-5 h-5" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-sm font-sans font-normal">개발중 ···</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </li>
+            <li>
+              <button onClick={() => toggleTheme()}>
+                {theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
               </button>
             </li>
             <li>
-              <button onClick={switchTheme}>
-                <MoonIcon className="w-5 h-5" />
-              </button>
-            </li>
-            <li>
-              <button>
-                <MagnifyingGlassIcon className="w-5 h-5" />
-              </button>
+              <TooltipProvider delayDuration={200}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <MagnifyingGlassIcon className="w-5 h-5" />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-sm font-sans font-normal">개발중 ···</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </li>
           </ul>
         </nav>

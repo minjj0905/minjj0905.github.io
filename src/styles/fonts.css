@@ -146,3 +146,15 @@
     url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf') format('truetype');
   font-display: swap;
 }
+
+p,
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+li,
+span {
+  transform: rotate(0.03deg);
+}

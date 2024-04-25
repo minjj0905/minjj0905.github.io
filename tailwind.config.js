@@ -31,6 +31,18 @@ export const theme = {
         bg: {
           primary: 'var(--c-bg-primary)',
         },
+        gray: {
+          50: 'var(--c-gray-50)',
+          100: 'var(--c-gray-100)',
+          200: 'var(--c-gray-200)',
+          300: 'var(--c-gray-300)',
+          400: 'var(--c-gray-400)',
+          500: 'var(--c-gray-500)',
+          600: 'var(--c-gray-600)',
+          700: 'var(--c-gray-700)',
+          800: 'var(--c-gray-800)',
+          900: 'var(--c-gray-900)',
+        },
       },
       border: 'hsl(var(--border))',
       input: 'hsl(var(--input))',

@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import Header from './Header';
 import { PropsWithChildren } from 'react';
 
@@ -6,7 +7,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     <div className="w-full flex flex-col text-c-text-primary bg-c-bg-primary items-center">
       <Header />
       <main className="max-w-[1200px] w-full px-5">{children}</main>
-      <footer></footer>
+      <Footer />
     </div>
   );
 };
