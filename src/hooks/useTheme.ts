@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const useTheme = (): [string, () => void] => {
-  const preferColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const preferColorScheme = window && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const localTheme = localStorage.getItem('theme');
   const initialTheme = localTheme || preferColorScheme;
 
