@@ -7,16 +7,16 @@ const Header = () => {
   const [theme, toggleTheme] = useTheme();
 
   return (
-    <header className="sticky top-0 w-full h-16 z-50 bg-c-bg-primary border-b-2 flex justify-center items-center">
+    <header className="sticky top-0 w-full h-12 z-50 bg-c-bg-primary bg-opacity-70 backdrop-blur-lg backdrop-saturate-150 border-b border-c-gray-300/50 flex justify-center items-center">
       <div className="max-w-[1200px] h-full w-full px-5 flex justify-between items-center">
         <Link to="/">
-          <h1 className="text-xl font-bold text-left font-gmarket">
+          <h1 className="text-lg font-bold text-left font-gmarket">
             Minjj
-            <span className="text-c-primary text-3xl leading-4">.</span>
+            <span className="text-c-primary text-3xl leading-3">.</span>
             log
           </h1>
         </Link>
-        <nav className="font-bold font-gmarket text-lg leading-4">
+        <nav className="font-medium font-sans leading-3">
           <ul className="flex gap-8 items-center h-full">
             <li>
               <Link to="/post">post</Link>

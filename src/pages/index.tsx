@@ -4,6 +4,7 @@ import SEO from '@/components/common/SEO';
 const IndexPage = () => (
   <Layout>
     <h1 className="text-3xl font-bold underline">Index</h1>
+    <img alt="" src="https://avatars.githubusercontent.com/u/55120738?v=4" width="260" height="260" />
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur viverra erat nec sodales maximus. Pellentesque
       tristique ornare arcu, eget hendrerit tellus. Suspendisse hendrerit lorem at fermentum fringilla. Sed id nisl

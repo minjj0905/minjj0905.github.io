@@ -62,9 +62,6 @@ importers:
       gatsby-transformer-sharp:
         specifier: ^5.13.1
         version: 5.13.1(gatsby-plugin-sharp@5.13.1(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1))(gatsby@5.13.4(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(type-fest@0.21.3)(typescript@5.4.5))(graphql@16.8.1)
-      lucide-react:
-        specifier: ^0.368.0
-        version: 0.368.0(react@18.2.0)
       prismjs:
         specifier: ^1.29.0
         version: 1.29.0
@@ -4706,11 +4703,6 @@ packages:
 
   lru-queue@0.1.0:
     resolution: {integrity: sha512-BpdYkt9EvGl8OfWHDQPISVpcl5xZthb+XPsbELj5AQXxIC8IriDZIQYjBJPEm5rS420sjZ0TLEzRcq5KdBhYrQ==}
-
-  lucide-react@0.368.0:
-    resolution: {integrity: sha512-soryVrCjheZs8rbXKdINw9B8iPi5OajBJZMJ1HORig89ljcOcEokKKAgGbg3QWxSXel7JwHOfDFUdDHAKyUAMw==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
 
   make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
@@ -12899,10 +12891,6 @@ snapshots:
   lru-queue@0.1.0:
     dependencies:
       es5-ext: 0.10.64
-
-  lucide-react@0.368.0(react@18.2.0):
-    dependencies:
-      react: 18.2.0
 
   make-dir@3.1.0:
     dependencies:

@@ -34,13 +34,13 @@
 
     --radius: 0.5rem;
 
-    --c-gray-900: #222222;
+    --c-gray-900: 235, 64, 52;
     --c-gray-800: #424242;
     --c-gray-700: #616161;
     --c-gray-600: #757575;
     --c-gray-500: #9e9e9e;
     --c-gray-400: #bdbdbd;
-    --c-gray-300: #e0e0e0;
+    --c-gray-300: 224, 224, 224;
     --c-gray-200: #eeeeee;
     --c-gray-100: #f5f5f5;
     --c-gray-50: #efefef;
@@ -48,7 +48,7 @@
     --c-primary: #f7627b;
 
     --c-text-primary: var(--c-gray-900);
-    --c-bg-primary: white;
+    --c-bg-primary: 255, 255, 255;
   }
 
   [data-theme='dark'] {
@@ -93,5 +93,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    transform: rotate(0.03deg);
   }
 }
