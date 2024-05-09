@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 w-full h-12 z-50 bg-c-bg-primary bg-opacity-70 backdrop-blur-lg backdrop-saturate-150 border-b border-c-gray-300/50 flex justify-center items-center">
-      <div className="max-w-[1200px] h-full w-full px-5 flex justify-between items-center">
+      <div className="max-w-3xl h-full w-full px-5 flex justify-between items-center">
         <Link to="/">
           <h1 className="text-lg font-bold text-left font-gmarket">
             Minjj
