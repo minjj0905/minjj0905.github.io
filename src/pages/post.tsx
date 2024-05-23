@@ -24,9 +24,7 @@ export const query = graphql`
 const Post = ({ data }: { data: any }) => (
   <Layout>
     <h1>Post</h1>
-    {data.allMdx.edges.map((node: any) => (
-      <h1>{node.node.frontmatter.title}</h1>
-    ))}
+    {data?.allMdx?.edges?.map((node: any) => <h1>{node.node.frontmatter.title}</h1>)}
     <Link to="/">
       <Button>To Index</Button>
     </Link>

@@ -1,11 +1,11 @@
 import { useSiteMetadata } from '@/hooks/useSiteMetadata';
+import { PropsWithChildren } from 'react';
 
-interface SEOProps {
+type SEOProps = PropsWithChildren<{
   title?: string;
   description?: string;
   pathname?: string;
-  children?: React.ReactNode;
-}
+}>;
 
 export const SEO = ({ title, description, pathname, children }: SEOProps) => {
   const { title: defaultTitle, description: defaultDescription, image, siteUrl } = useSiteMetadata();
