@@ -5,7 +5,7 @@ category: blog
 tags: ['test', 'github']
 summary: '개츠비테스트'
 thumbnail: { thumbnailSrc }
-update: true
+use: true
 ---
 
 # test

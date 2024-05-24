@@ -1,3 +1,4 @@
+import PostCard from '@/components/Post/PostCard';
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
 import { Button } from '@/components/ui/button';
@@ -13,7 +14,7 @@ export const query = graphql`
             date
             category
             summary
-            update
+            use
           }
         }
       }
@@ -24,7 +25,7 @@ export const query = graphql`
 const Post = ({ data }: { data: any }) => (
   <Layout>
     <h1>Post</h1>
-    {data?.allMdx?.edges?.map((node: any) => <h1>{node.node.frontmatter.title}</h1>)}
+    {data?.allMdx?.edges?.map((node: any) => <PostCard>{node.node.frontmatter.title}</PostCard>)}
     <Link to="/">
       <Button>To Index</Button>
     </Link>
