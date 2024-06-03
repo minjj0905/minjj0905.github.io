@@ -5,6 +5,10 @@ export type Post = {
     slug: string;
   };
   frontmatter: {
-    [key: string]: any;
+    title: string;
+    date: string;
+    summary: string;
+    tags: Array<string>;
+    published: boolean;
   };
 };

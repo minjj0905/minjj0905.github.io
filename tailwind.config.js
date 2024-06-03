@@ -27,12 +27,15 @@ export const theme = {
         primary: 'var(--c-primary)',
         text: {
           primary: 'var(--c-text-primary)',
+          secondary: 'var(--c-text-secondary)',
+          tertiary: 'var(--c-text-tertiary)',
+          caption: 'var(--c-text-caption)',
         },
         bg: {
           primary: 'rgba(var(--c-bg-primary), <alpha-value>)',
+          secondary: 'rgba(var(--c-bg-secondary), <alpha-value>)',
         },
         gray: {
-          50: 'var(--c-gray-50)',
           100: 'var(--c-gray-100)',
           200: 'var(--c-gray-200)',
           300: 'rgba(var(--c-gray-300), <alpha-value>)',

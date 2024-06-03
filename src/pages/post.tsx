@@ -1,9 +1,9 @@
 import PostCard from '@/components/Post/PostCard';
 import Layout from '@/components/common/Layout';
 import SEO from '@/components/common/SEO';
-import { Button } from '@/components/ui/button';
 import { Post } from '@/types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import React from 'react';
 
 export const query = graphql`
   query {
@@ -18,9 +18,9 @@ export const query = graphql`
           frontmatter {
             title
             date
-            category
             summary
-            use
+            tags
+            published
           }
         }
       }
@@ -28,18 +28,27 @@ export const query = graphql`
   }
 `;
 
-const PostPage = ({ data }: { data: any }) => {
+type PostPageProps = {
+  data: {
+    allMarkdownRemark: {
+      edges: Array<{ node: Post }>;
+    };
+  };
+};
+
+const PostPage: React.FC<PostPageProps> = ({ data }) => {
+  const posts = data?.allMarkdownRemark?.edges.filter(({ node }: { node: Post }) => node.frontmatter.published);
   return (
     <Layout>
-      <h1>Post</h1>
-      {data?.allMarkdownRemark?.edges?.map(({ node }: { node: Post }) => (
-        <PostCard post={node} key={node.id}>
-          {node.frontmatter.title}
-        </PostCard>
-      ))}
-      <Link to="/">
-        <Button>To Index</Button>
-      </Link>
+      <h1 className="text-2xl font-medium w-full text-center my-4">{posts?.length} Posts</h1>
+      <br />
+      <ol>
+        {posts?.length > 0 ? (
+          posts?.map(({ node }: { node: Post }) => node.frontmatter.published && <PostCard post={node} key={node.id} />)
+        ) : (
+          <p>작성된 글이 없습니다.</p>
+        )}
+      </ol>
     </Layout>
   );
 };
