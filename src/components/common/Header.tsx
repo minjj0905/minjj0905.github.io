@@ -19,7 +19,7 @@ const Header = () => {
         <nav className="font-medium font-sans leading-3">
           <ul className="flex gap-8 items-center h-full">
             <li>
-              <Link to="/post">post</Link>
+              <Link to="/">post</Link>
             </li>
             <li>
               <Link to="/life">life</Link>
