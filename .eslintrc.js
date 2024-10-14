@@ -34,5 +34,14 @@ module.exports = {
     semi: ['error', 'always'],
     'react/function-component-definition': [2, { namedComponents: ['arrow-function', 'function-declaration'] }],
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+    'import/extensions': 'off',
+    'react/prop-types': 'off',
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: './tsconfig.json',
+      },
+    },
   },
 };
