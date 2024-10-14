@@ -46,7 +46,8 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data }) => {
 
 export const Head = ({ data }: { data: { markdownRemark: Post } }) => {
   const { title, summary } = data.markdownRemark.frontmatter;
-  return <SEO title={title} description={summary} />;
+  const { slug } = data.markdownRemark.fields;
+  return <SEO title={title} description={summary} pathname={slug} />;
 };
 
 export const query = graphql`
