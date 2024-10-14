@@ -36,6 +36,7 @@ module.exports = {
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     'import/extensions': 'off',
     'react/prop-types': 'off',
+    'import/order': 'off',
   },
   settings: {
     'import/resolver': {
