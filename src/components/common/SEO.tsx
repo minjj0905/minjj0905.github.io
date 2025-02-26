@@ -25,12 +25,12 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
       {/* <meta name="keywords" content={keywords} /> */}
       {/* <meta name="image" content={seo.image} /> */}
 
-      <meta property="og:type" content={'website'} />
+      <meta property="og:type" content="website" />
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:url" content={seo.url} />
-      <meta property="og:site_name" content={'Minjj.log'} />
-      <meta property="og:locale" content={'ko_KR'} />
+      <meta property="og:site_name" content="Minjj.log" />
+      <meta property="og:locale" content="ko_KR" />
       {/* <meta property="og:image" content={''} /> */}
       {/* <meta property="og:image:width" content={''} /> */}
       {/* <meta property="og:image:height" content={''} /> */}

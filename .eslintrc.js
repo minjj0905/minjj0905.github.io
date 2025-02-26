@@ -37,6 +37,9 @@ module.exports = {
     'import/extensions': 'off',
     'react/prop-types': 'off',
     'import/order': 'off',
+    'no-use-before-define': 'off',
+    'react/require-default-props': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {
