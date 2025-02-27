@@ -10,5 +10,8 @@ export type Post = {
     summary: string;
     tags: Array<string>;
     published: boolean;
+    thumbnail: {
+      publicURL: string;
+    };
   };
 };

@@ -5,15 +5,16 @@ type SEOProps = PropsWithChildren<{
   title?: string;
   description?: string;
   pathname?: string;
+  thumbnail?: string;
 }>;
 
-export const SEO = ({ title, description, pathname, children }: SEOProps) => {
+export const SEO = ({ title, description, pathname, thumbnail, children }: SEOProps) => {
   const { title: defaultTitle, description: defaultDescription, image, siteUrl } = useSiteMetadata();
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image}`,
+    image: thumbnail ? `${siteUrl}${thumbnail}` : `${siteUrl}${image}`,
     url: `${siteUrl}${pathname || ``}`,
   };
 
@@ -31,7 +32,7 @@ export const SEO = ({ title, description, pathname, children }: SEOProps) => {
       <meta property="og:url" content={seo.url} />
       <meta property="og:site_name" content="Minjj.log" />
       <meta property="og:locale" content="ko_KR" />
-      {/* <meta property="og:image" content={''} /> */}
+      <meta property="og:image" content={seo.image} />
       {/* <meta property="og:image:width" content={''} /> */}
       {/* <meta property="og:image:height" content={''} /> */}
 

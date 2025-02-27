@@ -14,17 +14,19 @@ published: true
 나의 경우, Gist를 업데이트해서 Github 프로필을 꾸미는 [productive-box](https://github.com/techinpark/productive-box)와 [github-stats-box](https://github.com/bokub/github-stats-box)를 사용하고 있다.  
 이 두 레포지토리는 커밋이 생길리가 없기 때문에... 매번 수동으로 workflow를 enable 해줘야 한다는 단점이 있었다.
 
-오늘도 마침 프로필에 들어갔다 업데이트가 멈춘 Gist를 발견했고 *이걸 또 켜야해?* 라는 생각이 들어서 계속 활성화 할 수 있는 방법이 없는지 알아보았다.
+오늘도 마침 프로필에 들어갔다 업데이트가 멈춘 Gist를 발견했고 _이걸 또 켜야해?_ 라는 생각이 들어서 계속 활성화 할 수 있는 방법이 없는지 알아보았다.
 
 ## keepalive-workflow
+
 이 [workflow](https://github.com/gautamkrishnar/keepalive-workflow)는 45일간 커밋이 없을 시에 Github API를 이용하거나, 더미 커밋을 생성해서 workflow가 계속 활성화될 수 있도록 한다.
 
 ### 방법1 : 내 워크플로우에 step 추가
+
 ```yml
 name: Github Action with a cronjob trigger
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 permissions:
   actions: write
 jobs:
@@ -37,6 +39,7 @@ jobs:
       # - step n, use it as the last step
       - uses: gautamkrishnar/keepalive-workflow@v2 # using the workflow with default settings
 ```
+
 마지막 스텝으로 keepalive-workflow를 추가한다.  
 다만 이 방법은 내가 실행하는 workflow가 여러개일 경우에 매번 추가해야 한다는 단점이 있다.
 
@@ -47,7 +50,7 @@ jobs:
 name: Github Action with a cronjob trigger
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 jobs:
   main-job:
     name: Main Job
@@ -70,13 +73,13 @@ jobs:
 </details>
 <br>
 
-
 ### 방법2: 별도 workflow로 분리
+
 ```yml
 name: Keepalive Workflow
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 permissions:
   actions: write
 jobs:
@@ -87,9 +90,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/keepalive-workflow@v2
         with:
-          workflow_files: "build1.yml, build2.yml"
-          time_elapsed: "0"
+          workflow_files: 'build1.yml, build2.yml'
+          time_elapsed: '0'
 ```
+
 workflow_files에 크론잡이 수행되는 workflow의 이름을 추가해서 관리할 수 있다.
 
 ```yml
@@ -98,8 +102,9 @@ on:
     branches:
       - master
   schedule:
-    - cron: "0 0 * * *"
+    - cron: '0 0 * * *'
 ```
+
 내 [github-stats-box](https://github.com/minjj0905/github-stats-box) 레포지토리에 해당 workflow를 추가하고 push 시에도 작동하도록 추가해서 action이 실행되는 것을 확인해보았다.
 
 ![](02.png)  
