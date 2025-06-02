@@ -4,7 +4,7 @@ date: '2025-02-26'
 tags: ['Github Actions']
 summary: '그만 좀 멈춰주라! github action'
 thumbnail: '01.png'
-published: true
+published: false
 ---
 
 ## Github Action은 왜 멈출까
