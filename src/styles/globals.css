@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --primary: 247 98 123; /* #f7627b */
+
+    --bg-base: 252 252 253;
+    --bg-subtle: 244 244 246;
+
+    --text-primary: 26 26 28;
+    --text-secondary: 82 82 90;
+    --text-tertiary: 138 138 148;
+
+    --line: 226 226 231;
+    --glass: 255 255 255;
+
+    --glass-alpha: 0.66;
+    --glass-shadow: 0 1px 2px rgb(16 16 20 / 0.04), 0 8px 24px -12px rgb(16 16 20 / 0.12);
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --primary: 247 122 143;
+
+    --bg-base: 17 17 19;
+    --bg-subtle: 26 26 29;
+
+    --text-primary: 240 240 243;
+    --text-secondary: 176 176 184;
+    --text-tertiary: 126 126 136;
+
+    --line: 48 48 54;
+    --glass: 38 38 43;
+
+    --glass-alpha: 0.55;
+    --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.5);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-base font-sans text-text-primary antialiased;
+    margin: 0;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: rgb(var(--primary) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--primary) / 0.6);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  /* 절제된 글래스 표면: 반투명 + 얇은 경계선 + 미세한 blur */
+  .glass {
+    background-color: rgb(var(--glass) / var(--glass-alpha));
+    border: 1px solid rgb(var(--line) / 0.7);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* 페이지 상단의 은은한 광원. 그라데이션 배너가 아니라 앰비언트 톤. */
+  .ambient::before {
+    content: '';
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    height: 420px;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(60% 100% at 50% 0%, rgb(var(--primary) / 0.07), transparent 70%);
+  }
+}
+
+@layer utilities {
+  .break-keep-ko {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ── 본문(마크다운) 타이포그래피 ───────────────────────────── */
+.prose-post {
+  @apply text-[1.0625rem] leading-[1.85] text-text-secondary;
+}
+
+.prose-post > * + * {
+  margin-top: 1.25em;
+}
+
+.prose-post h2,
+.prose-post h3,
+.prose-post h4 {
+  @apply break-keep-ko scroll-mt-24 font-semibold text-text-primary;
+}
+
+.prose-post h2 {
+  @apply mt-12 border-b border-line pb-2 text-2xl;
+}
+
+.prose-post h3 {
+  @apply mt-10 text-xl;
+}
+
+.prose-post h4 {
+  @apply mt-8 text-lg;
+}
+
+.prose-post p {
+  @apply break-keep-ko;
+}
+
+.prose-post a {
+  @apply font-medium text-primary underline decoration-primary/35 underline-offset-[3px] transition-colors;
+}
+
+.prose-post a:hover {
+  @apply decoration-primary;
+}
+
+.prose-post strong {
+  @apply font-semibold text-text-primary;
+}
+
+.prose-post ul,
+.prose-post ol {
+  @apply pl-6;
+}
+
+.prose-post ul {
+  @apply list-disc;
+}
+
+.prose-post ol {
+  @apply list-decimal;
+}
+
+.prose-post li {
+  @apply break-keep-ko my-1.5;
+}
+
+.prose-post li::marker {
+  @apply text-text-tertiary;
+}
+
+.prose-post blockquote {
+  @apply border-l-2 border-primary/40 bg-bg-subtle/60 py-2 pl-4 pr-3 text-text-secondary;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.prose-post blockquote > * + * {
+  margin-top: 0.5em;
+}
+
+.prose-post img {
+  @apply my-6 h-auto max-w-full rounded-xl border border-line;
+}
+
+.prose-post hr {
+  @apply my-10 border-0 border-t border-line;
+}
+
+.prose-post table {
+  @apply my-6 w-full border-collapse overflow-hidden rounded-lg text-[0.95rem];
+}
+
+.prose-post th,
+.prose-post td {
+  @apply border border-line px-3 py-2 text-left;
+}
+
+.prose-post th {
+  @apply bg-bg-subtle font-semibold text-text-primary;
+}
+
+/* 인라인 코드 */
+.prose-post :not(pre) > code {
+  @apply rounded-md border border-line bg-bg-subtle px-1.5 py-0.5 font-mono text-[0.875em] text-text-primary;
+}
+
+/* 헤딩 앵커 */
+.prose-post .heading-anchor {
+  @apply ml-2 text-text-tertiary opacity-0 no-underline transition-opacity;
+}
+
+.prose-post h2:hover .heading-anchor,
+.prose-post h3:hover .heading-anchor,
+.prose-post h4:hover .heading-anchor {
+  @apply opacity-100;
+}
+
+/* ── 코드 블록 (rehype-pretty-code / shiki) ──────────────── */
+.prose-post pre {
+  @apply my-6 overflow-x-auto rounded-xl border border-line p-4 text-[0.9rem] leading-relaxed;
+  background-color: rgb(var(--bg-subtle)) !important;
+}
+
+.prose-post pre code {
+  @apply grid font-mono;
+  background: transparent;
+  counter-reset: line;
+}
+
+.prose-post pre code > .line {
+  @apply px-1;
+}
+
+/* 라이트/다크 테마별 shiki 토큰 색 전환 */
+html:not(.dark) .prose-post pre code span {
+  color: var(--shiki-light) !important;
+}
+
+html.dark .prose-post pre code span {
+  color: var(--shiki-dark) !important;
+}
+
+figure[data-rehype-pretty-code-figure] {
+  @apply relative;
+}
+
+figcaption[data-rehype-pretty-code-title] {
+  @apply -mb-3 inline-block rounded-t-lg border border-b-0 border-line bg-bg-subtle px-3 py-1.5 font-mono text-xs text-text-tertiary;
+}
