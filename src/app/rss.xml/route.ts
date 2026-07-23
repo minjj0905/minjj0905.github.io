@@ -1,6 +1,9 @@
 import { getAllPosts } from '@/lib/posts';
 import { siteConfig } from '@/lib/site';
 
+// 콘텐츠가 파일 기반이라 빌드 시점에 확정된다. 서버리스 함수로 띄울 이유가 없다.
+export const dynamic = 'force-static';
+
 const escapeXml = (value: string) =>
   value.replace(/[<>&'"]/g, (char) => {
     switch (char) {
