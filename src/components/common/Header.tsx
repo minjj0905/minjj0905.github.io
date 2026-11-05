@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import NavLinks from '@/components/common/NavLinks';
 import ThemeToggle from '@/components/common/ThemeToggle';
-import { siteConfig } from '@/lib/site';
+import { isHiddenRoute, siteConfig } from '@/lib/site';
 
 const Header = () => (
   <header className="sticky top-0 z-50 w-full border-b border-line/50 bg-bg-base/70 backdrop-blur-lg backdrop-saturate-150">
@@ -14,7 +14,7 @@ const Header = () => (
       </Link>
 
       <div className="flex items-center gap-6">
-        <NavLinks items={siteConfig.nav} />
+        <NavLinks items={siteConfig.nav.filter(({ href }) => !isHiddenRoute(href))} />
         <ThemeToggle />
       </div>
     </div>

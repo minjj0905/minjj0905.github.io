@@ -1,6 +1,8 @@
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
 import { projects } from '@/data/projects';
+import { isHiddenRoute } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -9,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 const PortfolioPage = () => {
+  if (isHiddenRoute('/portfolio')) notFound();
+
   return (
     <div>
       <header className="py-4">

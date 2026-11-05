@@ -13,3 +13,11 @@ export const siteConfig = {
     { label: 'About', href: '/about' },
   ],
 } as const;
+
+/**
+ * 내용이 준비될 때까지 임시로 숨기는 페이지.
+ * 여기 있는 경로는 GNB·sitemap 에서 빠지고, 직접 접속하면 404 가 된다. 다시 열려면 배열에서 지우면 된다.
+ */
+const hiddenRoutes: readonly string[] = ['/portfolio', '/about'];
+
+export const isHiddenRoute = (href: string) => hiddenRoutes.includes(href);
