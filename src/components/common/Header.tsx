@@ -5,15 +5,15 @@ import ThemeToggle from '@/components/common/ThemeToggle';
 import { siteConfig } from '@/lib/site';
 
 const Header = () => (
-  <header className="sticky top-0 z-50 px-4 pt-3">
-    <div className="glass mx-auto flex h-14 w-full max-w-3xl items-center justify-between rounded-2xl pl-5 pr-3">
-      <Link href="/" className="font-gmarket text-lg font-bold tracking-tight">
+  <header className="sticky top-0 z-50 w-full border-b border-line/50 bg-bg-base/70 backdrop-blur-lg backdrop-saturate-150">
+    <div className="mx-auto flex h-12 w-full max-w-3xl items-center justify-between px-5">
+      <Link href="/" className="font-gmarket text-lg font-bold">
         Minjj
-        <span className="text-primary">.</span>
+        <span className="text-3xl leading-3 text-primary">.</span>
         log
       </Link>
 
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-6">
         <NavLinks items={siteConfig.nav} />
         <ThemeToggle />
       </div>

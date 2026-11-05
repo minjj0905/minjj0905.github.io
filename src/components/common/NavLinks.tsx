@@ -14,7 +14,7 @@ const NavLinks = ({ items }: NavLinksProps) => {
 
   return (
     <nav>
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-6">
         {items.map(({ label, href }) => {
           const active = pathname === href || pathname.startsWith(`${href}/`);
 
@@ -24,8 +24,8 @@ const NavLinks = ({ items }: NavLinksProps) => {
                 href={href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'rounded-lg px-3 py-1.5 text-sm font-medium transition-colors',
-                  active ? 'bg-primary/10 text-primary' : 'text-text-secondary hover:bg-bg-subtle hover:text-text-primary',
+                  'text-sm font-medium transition-colors',
+                  active ? 'text-primary' : 'text-text-secondary hover:text-text-primary',
                 )}
               >
                 {label}

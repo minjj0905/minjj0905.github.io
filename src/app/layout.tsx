@@ -53,9 +53,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <html lang="ko" suppressHydrationWarning>
     <body>
       <ThemeProvider>
-        <div className="ambient relative flex min-h-dvh flex-col">
+        <div className="flex min-h-dvh flex-col">
           <Header />
-          <main className="relative z-10 mx-auto w-full max-w-3xl flex-1 px-5 pb-20 pt-10">{children}</main>
+          <main className="mx-auto w-full max-w-3xl flex-1 px-5 pb-20 pt-10">{children}</main>
           <Footer />
         </div>
       </ThemeProvider>

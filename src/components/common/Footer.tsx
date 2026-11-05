@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/site';
 
 const Footer = () => (
-  <footer className="relative z-10 mt-auto border-t border-line/60">
+  <footer className="mt-auto border-t border-line/60">
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-2 px-5 py-8 text-sm text-text-tertiary sm:flex-row sm:items-center sm:justify-between">
       <p>
         © {new Date().getFullYear()} {siteConfig.author}

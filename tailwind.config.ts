@@ -23,20 +23,10 @@ const config: Config = {
           tertiary: 'rgb(var(--text-tertiary) / <alpha-value>)',
         },
         line: 'rgb(var(--line) / <alpha-value>)',
-        glass: 'rgb(var(--glass) / <alpha-value>)',
       },
       borderRadius: {
         xl: '0.875rem',
         '2xl': '1.125rem',
-      },
-      keyframes: {
-        'fade-up': {
-          from: { opacity: '0', transform: 'translateY(6px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
-      },
-      animation: {
-        'fade-up': 'fade-up 0.4s ease-out both',
       },
     },
   },

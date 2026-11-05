@@ -16,10 +16,6 @@
     --text-tertiary: 138 138 148;
 
     --line: 226 226 231;
-    --glass: 255 255 255;
-
-    --glass-alpha: 0.66;
-    --glass-shadow: 0 1px 2px rgb(16 16 20 / 0.04), 0 8px 24px -12px rgb(16 16 20 / 0.12);
   }
 
   .dark {
@@ -35,10 +31,6 @@
     --text-tertiary: 126 126 136;
 
     --line: 48 48 54;
-    --glass: 38 38 43;
-
-    --glass-alpha: 0.55;
-    --glass-shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.5);
   }
 
   * {
@@ -63,29 +55,6 @@
     outline: 2px solid rgb(var(--primary) / 0.6);
     outline-offset: 2px;
     border-radius: 4px;
-  }
-}
-
-@layer components {
-  /* 절제된 글래스 표면: 반투명 + 얇은 경계선 + 미세한 blur */
-  .glass {
-    background-color: rgb(var(--glass) / var(--glass-alpha));
-    border: 1px solid rgb(var(--line) / 0.7);
-    backdrop-filter: blur(14px) saturate(150%);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
-    box-shadow: var(--glass-shadow);
-  }
-
-  /* 페이지 상단의 은은한 광원. 그라데이션 배너가 아니라 앰비언트 톤. */
-  .ambient::before {
-    content: '';
-    position: fixed;
-    inset-inline: 0;
-    top: 0;
-    height: 420px;
-    pointer-events: none;
-    z-index: 0;
-    background: radial-gradient(60% 100% at 50% 0%, rgb(var(--primary) / 0.07), transparent 70%);
   }
 }
 
