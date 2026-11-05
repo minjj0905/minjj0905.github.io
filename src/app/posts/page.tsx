@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
-import PostCard from '@/components/post/PostCard';
+import FilteredPostList from '@/components/post/FilteredPostList';
+import PostList from '@/components/post/PostList';
 import { getAllPosts, getAllTags } from '@/lib/posts';
 
 export const metadata: Metadata = {
@@ -13,34 +15,15 @@ const PostsPage = async () => {
   const [posts, tags] = await Promise.all([getAllPosts(), getAllTags()]);
 
   return (
-    <div className="animate-fade-up">
+    <div>
       <header className="py-4">
-        <h1 className="font-gmarket text-3xl font-bold">Posts</h1>
-        <p className="mt-2 text-text-secondary">총 {posts.length}개의 글</p>
+        <h1 className="text-3xl font-bold">Posts</h1>
       </header>
 
-      {tags.length > 0 && (
-        <ul className="mb-8 mt-4 flex flex-wrap gap-1.5">
-          {tags.map(({ tag, count }) => (
-            <li
-              key={tag}
-              className="rounded-md border border-line/70 bg-bg-subtle/70 px-2.5 py-1 text-xs text-text-tertiary"
-            >
-              {tag} <span className="text-text-tertiary/70">{count}</span>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {posts.length > 0 ? (
-        <ul className="flex flex-col gap-3">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </ul>
-      ) : (
-        <p className="text-text-tertiary">아직 작성된 글이 없습니다.</p>
-      )}
+      {/* 정적 HTML 에는 전체 목록을 넣어두고, 브라우저에서는 ?tag= 필터 + 무한/가상 스크롤 목록으로 교체 */}
+      <Suspense fallback={<PostList posts={posts} tags={tags} />}>
+        <FilteredPostList posts={posts} tags={tags} />
+      </Suspense>
     </div>
   );
 };
