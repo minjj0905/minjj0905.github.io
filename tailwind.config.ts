@@ -24,6 +24,31 @@ const config: Config = {
         },
         line: 'rgb(var(--line) / <alpha-value>)',
       },
+      // next-themes의 disableTransitionOnChange가 transition을 꺼 버리므로 keyframe으로 구현한다.
+      keyframes: {
+        'orbit-set': {
+          from: { transform: 'rotate(0deg)', opacity: '1' },
+          to: { transform: 'rotate(75deg)', opacity: '0' },
+        },
+        'orbit-rise': {
+          from: { transform: 'rotate(-75deg)', opacity: '0' },
+          to: { transform: 'rotate(0deg)', opacity: '1' },
+        },
+        'orbit-set-left': {
+          from: { transform: 'rotate(0deg)', opacity: '1' },
+          to: { transform: 'rotate(-75deg)', opacity: '0' },
+        },
+        'orbit-rise-right': {
+          from: { transform: 'rotate(75deg)', opacity: '0' },
+          to: { transform: 'rotate(0deg)', opacity: '1' },
+        },
+      },
+      animation: {
+        'sun-set': 'orbit-set 0.6s ease-in-out both',
+        'sun-rise': 'orbit-rise-right 0.6s ease-in-out both',
+        'moon-rise': 'orbit-rise 0.6s ease-in-out both',
+        'moon-set': 'orbit-set-left 0.6s ease-in-out both',
+      },
       borderRadius: {
         xl: '0.875rem',
         '2xl': '1.125rem',
